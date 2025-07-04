@@ -33,7 +33,7 @@ app_data = {
     "APP_VERSION": "1.0.0.0086",
     "APP_NAME": "@FRAISEMOE2 Addons Installer",
     "TEMP": "TEMP",
-    "CACHE": "FRAISEMOE",
+    "CACHE": "FRAISEMOE2",
     "PLUGIN": "PLUGIN",
     "CONFIG_URL": "aHR0cHM6Ly9hcmNoaXZlLm92b2Zpc2guY29tL2FwaS93aWRnZXQvbmVrb3BhcmEvZG93bmxvYWRfdXJsX2RlYnVnLmpzb24=",
     "UA": "TW96aWxsYS81LjAgKExpbnV4IGRlYmlhbjEyIEZyYWlzZU1vZTItQWNjZXB0KSBHZWNrby8yMDEwMDEwMSBGaXJlZm94LzExNC4w",
@@ -83,7 +83,7 @@ TEMP = os.getenv(app_data["TEMP"])
 CACHE = os.path.join(TEMP, app_data["CACHE"])
 PLUGIN = os.path.join(CACHE, app_data["PLUGIN"])
 CONFIG_URL = decode_base64(app_data["CONFIG_URL"])
-UA = decode_base64(app_data["UA"]) + f" FraiseMoe/{APP_VERSION}"
+UA = decode_base64(app_data["UA"]) + f" FraiseMoe2/{APP_VERSION}"
 GAME_INFO = app_data["game_info"]
 BLOCK_SIZE = 67108864
 HASH_SIZE = 134217728

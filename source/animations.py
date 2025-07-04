@@ -12,7 +12,7 @@ class MultiStageAnimations:
         # 动画时序配置
         self.animation_config = {
             "logo": {
-                "delay_after": 2800
+                "delay_after": 1200
             },
             "mainbg": {
                 "delay_after": 500

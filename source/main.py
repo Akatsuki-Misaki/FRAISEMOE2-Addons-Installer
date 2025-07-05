@@ -120,6 +120,7 @@ class HashManager:
                 sha256_hash.update(byte_block)
         return sha256_hash.hexdigest()
 
+    # 使用多线程优化哈希值计算
     def calculate_hashes_in_parallel(self, file_paths):
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future_to_file = {
@@ -435,7 +436,7 @@ class MainWindow(QMainWindow):
             )
             for game, info in GAME_INFO.items()
         }
-        
+        # 判断游戏是否存在，不存在则跳过
         if (
             game_version not in game_exe
             or not os.path.exists(game_exe[game_version])
@@ -480,14 +481,8 @@ class MainWindow(QMainWindow):
                 QApplication.processEvents()
                 with py7zr.SevenZipFile(_7z_path, mode="r") as archive:
                     archive.extractall(path=PLUGIN)
-                
-                # 创建游戏目录(如果不存在)
                 os.makedirs(game_folder, exist_ok=True)
-                
-                # 复制主文件
                 shutil.copy(plugin_path, game_folder)
-                
-                # 如果是After版本，还需要复制签名文件
                 if game_version == "NEKOPARA After":
                     sig_path = os.path.join(PLUGIN, GAME_INFO[game_version]["sig_path"])
                     shutil.copy(sig_path, game_folder)
